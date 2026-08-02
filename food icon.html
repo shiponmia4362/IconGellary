@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unique Food Icon Library - No Duplicates</title>
+    <!-- Font Awesome 6 Free -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- html2canvas for high quality export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #f6f9fc;
+            color: #0a1929;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 48px 24px 40px;
+            background: linear-gradient(145deg, #ffffff, #eef2f7);
+            border-radius: 36px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.02);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .header h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #dc2626, #ea580c, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #475569;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        .header .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .header .badge {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header .badge.green {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .header .badge.purple {
+            background: #ede9fe;
+            color: #5b21b6;
+        }
+
+        .header .badge.red {
+            background: #fce4ec;
+            color: #b71c1c;
+        }
+
+        .stats-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .stat-item {
+            background: #fff;
+            padding: 10px 28px;
+            border-radius: 60px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            border: 1px solid #e9edf3;
+            font-weight: 500;
+            color: #334155;
+        }
+
+        .stat-item strong {
+            color: #0a1929;
+            font-size: 1.1rem;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 36px;
+        }
+
+        .search-box {
+            flex: 1 1 340px;
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 60px;
+            padding: 4px 20px 4px 26px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            border: 2px solid #e9edf3;
+            transition: 0.25s;
+            max-width: 500px;
+        }
+
+        .search-box:focus-within {
+            border-color: #dc2626;
+            box-shadow: 0 0 0 5px rgba(220,38,38,0.12);
+        }
+
+        .search-box i {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 14px 14px 14px 12px;
+            font-size: 1rem;
+            width: 100%;
+            background: transparent;
+            color: #0a1929;
+        }
+
+        .search-box input::placeholder {
+            color: #94a3b8;
+        }
+
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .category-filter button {
+            background: #fff;
+            border: 1.5px solid #e9edf3;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #475569;
+            cursor: pointer;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .category-filter button:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+            transform: translateY(-1px);
+        }
+
+        .category-filter button.active {
+            background: #dc2626;
+            color: #fff;
+            border-color: #dc2626;
+            box-shadow: 0 4px 14px rgba(220,38,38,0.25);
+        }
+
+        .category-filter button .count {
+            background: rgba(255,255,255,0.2);
+            padding: 0 8px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            margin-left: 4px;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 18px;
+        }
+
+        .icon-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 20px 10px 14px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            border: 1px solid #edf2f7;
+            transition: all 0.2s ease;
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .icon-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+            border-color: #fca5a5;
+            background: #fffafa;
+        }
+
+        .icon-card .icon-wrap {
+            font-size: 2.6rem;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .icon-card:hover .icon-wrap {
+            transform: scale(1.08);
+        }
+
+        .icon-card .icon-name {
+            font-size: 0.72rem;
+            color: #1e293b;
+            font-weight: 500;
+            word-break: break-word;
+            max-width: 100%;
+            line-height: 1.3;
+            background: #f1f5f9;
+            padding: 4px 12px;
+            border-radius: 30px;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            letter-spacing: 0.2px;
+        }
+
+        .icon-card .icon-category {
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #94a3b8;
+            margin-top: 6px;
+            background: #f8fafc;
+            padding: 2px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* download button */
+        .download-btn {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.85);
+            border: none;
+            border-radius: 30px;
+            width: 30px;
+            height: 30px;
+            font-size: 0.9rem;
+            color: #1e293b;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.6;
+            z-index: 5;
+        }
+        .download-btn:hover {
+            background: #dc2626;
+            color: #fff;
+            opacity: 1;
+            transform: scale(1.08);
+            box-shadow: 0 4px 12px rgba(220,38,38,0.3);
+        }
+
+        .load-more-wrap {
+            text-align: center;
+            margin: 48px 0 30px;
+        }
+
+        .load-more-btn {
+            background: #fff;
+            border: 1.5px solid #e2e8f0;
+            padding: 14px 48px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #1e293b;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .load-more-btn:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+            transform: scale(1.02);
+        }
+
+        .load-more-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 32px 0 16px;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            border-top: 1px solid #e9edf3;
+            margin-top: 40px;
+        }
+
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 20px;
+            color: #94a3b8;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 16px;
+            opacity: 0.4;
+        }
+
+        .empty-state h3 {
+            font-size: 1.3rem;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+
+        .warning-banner {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin: 20px 0 30px;
+            text-align: center;
+            color: #92400e;
+        }
+
+        .warning-banner strong {
+            color: #78350f;
+        }
+
+        /* hidden export container */
+        .export-container {
+            position: fixed;
+            left: -9999px;
+            top: -9999px;
+            width: 2410px;
+            height: 2410px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .export-container .icon-wrap {
+            font-size: 1200px !important;
+            color: #0a1929;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        .export-container .icon-wrap i {
+            font-size: 1200px !important;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 16px; }
+            .header h1 { font-size: 2.2rem; }
+            .header { padding: 32px 16px 28px; }
+            .icon-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; }
+            .icon-card .icon-wrap { font-size: 2rem; height: 44px; }
+            .icon-card .icon-name { font-size: 0.6rem; }
+            .search-box { flex: 1 1 100%; max-width: 100%; }
+            .category-filter button { font-size: 0.75rem; padding: 8px 14px; }
+            .stats-bar .stat-item { font-size: 0.8rem; padding: 6px 16px; }
+            .download-btn { width: 26px; height: 26px; font-size: 0.75rem; top: 6px; right: 6px; }
+        }
+
+        @media (max-width: 480px) {
+            .icon-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 10px; }
+            .icon-card { padding: 14px 6px 10px; border-radius: 14px; }
+            .icon-card .icon-wrap { font-size: 1.6rem; height: 36px; }
+            .icon-card .icon-name { font-size: 0.55rem; padding: 2px 8px; }
+            .header h1 { font-size: 1.6rem; }
+            .load-more-btn { padding: 12px 28px; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <header class="header">
+        <h1>🍽️ Unique Food Icon Library</h1>
+        <p class="subtitle">Every Icon is Unique — No Duplicates Anywhere!</p>
+        <div class="badge-group">
+            <span class="badge"><i class="fas fa-check-circle"></i> All Icons Unique</span>
+            <span class="badge green"><i class="fas fa-shield-alt"></i> No Duplicates</span>
+            <span class="badge purple"><i class="fas fa-tags"></i> 50+ Categories</span>
+            <span class="badge red"><i class="fas fa-exclamation-triangle"></i> No Reuse</span>
+        </div>
+    </header>
+
+    <div class="warning-banner">
+        <i class="fas fa-info-circle"></i>
+        <strong>Note:</strong> Font Awesome has ~2,000 unique icons. Each icon is used <strong>only once</strong> across all categories. 
+        No icon is duplicated anywhere!
+    </div>
+
+    <div class="stats-bar">
+        <span class="stat-item"><strong id="totalCount">0</strong> Total Unique Icons</span>
+        <span class="stat-item"><strong id="visibleCount">0</strong> Visible</span>
+        <span class="stat-item"><strong id="categoryCount">0</strong> Categories</span>
+    </div>
+
+    <div class="controls">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search food icons (e.g., pizza, burger, sushi...)" />
+        </div>
+        <div class="category-filter" id="categoryFilter">
+            <button class="active" data-cat="all">All <span class="count" id="allCount">0</span></button>
+        </div>
+    </div>
+
+    <div class="icon-grid" id="iconGrid"></div>
+
+    <div class="load-more-wrap">
+        <button class="load-more-btn" id="loadMoreBtn">
+            <i class="fas fa-plus-circle"></i> Load More (60)
+        </button>
+    </div>
+
+    <footer class="footer">
+        <i class="fas fa-utensils" style="margin-right:6px; color:#dc2626;"></i>
+        Unique Food Icon Library · <span id="footerYear"></span> · No Duplicates Guaranteed!
+    </footer>
+</div>
+
+<!-- Hidden export container -->
+<div class="export-container" id="exportContainer"></div>
+
+<script>
+    (function() {
+        'use strict';
+
+        // ================================================================
+        //  ALL UNIQUE FONT AWESOME ICONS (NO DUPLICATES)
+        // ================================================================
+
+        // Complete list of unique Font Awesome food & kitchen icons
+        const UNIQUE_ICON_CLASSES = [
+            // Solid Food Icons
+            'fa-solid fa-pizza-slice',
+            'fa-solid fa-hamburger',
+            'fa-solid fa-bread-slice',
+            'fa-solid fa-taco',
+            'fa-solid fa-burrito',
+            'fa-solid fa-sushi',
+            'fa-solid fa-ramen',
+            'fa-solid fa-pasta',
+            'fa-solid fa-noodle',
+            'fa-solid fa-utensils',
+            'fa-solid fa-utensil-spoon',
+            'fa-solid fa-kitchen-set',
+            'fa-solid fa-bowl',
+            'fa-solid fa-plate',
+            'fa-solid fa-blender',
+            'fa-solid fa-hotdog',
+            'fa-solid fa-cake',
+            'fa-solid fa-cake-candles',
+            'fa-solid fa-candy',
+            'fa-solid fa-chocolate',
+            'fa-solid fa-cookie',
+            'fa-solid fa-cookie-bite',
+            'fa-solid fa-donut',
+            'fa-solid fa-french-fries',
+            'fa-solid fa-popcorn',
+            'fa-solid fa-cheese',
+            'fa-solid fa-glass-milk',
+            'fa-solid fa-drumstick',
+            'fa-solid fa-drumstick-bite',
+            'fa-solid fa-meat',
+            'fa-solid fa-fish',
+            'fa-solid fa-shrimp',
+            'fa-solid fa-apple-alt',
+            'fa-solid fa-apple-whole',
+            'fa-solid fa-orange',
+            'fa-solid fa-carrot',
+            'fa-solid fa-tomato',
+            'fa-solid fa-pepper',
+            'fa-solid fa-mushroom',
+            'fa-solid fa-corn',
+            'fa-solid fa-wheat',
+            'fa-solid fa-wheat-awn',
+            'fa-solid fa-coffee',
+            'fa-solid fa-tea',
+            'fa-solid fa-ice-cream',
+            'fa-solid fa-wine-glass',
+            'fa-solid fa-wine-glass-empty',
+            'fa-solid fa-beer',
+            'fa-solid fa-beer-mug',
+            'fa-solid fa-cocktail',
+            'fa-solid fa-mug',
+            'fa-solid fa-mug-saucer',
+            'fa-solid fa-mug-hot',
+            'fa-solid fa-bottle',
+            'fa-solid fa-bottle-water',
+            'fa-solid fa-bottle-droplet',
+            'fa-solid fa-champagne',
+            'fa-solid fa-champagne-glasses',
+            'fa-solid fa-whiskey-glass',
+            'fa-solid fa-whiskey-glass-ice',
+            'fa-solid fa-glass',
+            'fa-solid fa-glass-water',
+            'fa-solid fa-glass-water-droplet',
+            'fa-solid fa-plate-wheat',
+            'fa-solid fa-bowl-food',
+            'fa-solid fa-bowl-rice',
+            'fa-solid fa-bowl-spoon',
+            'fa-solid fa-cauldron',
+            'fa-solid fa-cheese',
+            'fa-solid fa-crutch',
+            'fa-solid fa-egg',
+            'fa-solid fa-egg-fried',
+            'fa-solid fa-fish',
+            'fa-solid fa-fish-bones',
+            'fa-solid fa-meat',
+            'fa-solid fa-pancakes',
+            'fa-solid fa-pasta',
+            'fa-solid fa-pizza',
+            'fa-solid fa-ribbon',
+            'fa-solid fa-roll',
+            'fa-solid fa-roll-formation',
+            'fa-solid fa-sausage',
+            'fa-solid fa-seedling',
+            'fa-solid fa-shrimp',
+            'fa-solid fa-spaghetti-monster',
+            'fa-solid fa-steak',
+            'fa-solid fa-taco',
+            'fa-solid fa-toast',
+            'fa-solid fa-wheat'
+        ];
+
+        // Additional unique icons for variety
+        const ADDITIONAL_ICONS = [
+            'fa-solid fa-apple-whole',
+            'fa-solid fa-bacon',
+            'fa-solid fa-bagel',
+            'fa-solid fa-baguette',
+            'fa-solid fa-bread',
+            'fa-solid fa-brioche',
+            'fa-solid fa-burger',
+            'fa-solid fa-burrito',
+            'fa-solid fa-cake-slice',
+            'fa-solid fa-cannabis',
+            'fa-solid fa-caramel',
+            'fa-solid fa-cassette',
+            'fa-solid fa-chili-pepper',
+            'fa-solid fa-croissant',
+            'fa-solid fa-cucumber',
+            'fa-solid fa-cupcake',
+            'fa-solid fa-curry',
+            'fa-solid fa-dan-dan-noodle',
+            'fa-solid fa-doughnut',
+            'fa-solid fa-dumpling',
+            'fa-solid fa-eggplant',
+            'fa-solid fa-falafel',
+            'fa-solid fa-french-fry',
+            'fa-solid fa-frozen',
+            'fa-solid fa-garlic',
+            'fa-solid fa-ginger',
+            'fa-solid fa-grape',
+            'fa-solid fa-green-tea',
+            'fa-solid fa-guava',
+            'fa-solid fa-hazelnut',
+            'fa-solid fa-honey',
+            'fa-solid fa-hummus',
+            'fa-solid fa-ice-cream-bar',
+            'fa-solid fa-ice-pop',
+            'fa-solid fa-jam',
+            'fa-solid fa-kebab',
+            'fa-solid fa-kiwi',
+            'fa-solid fa-kombucha',
+            'fa-solid fa-latte',
+            'fa-solid fa-lemon',
+            'fa-solid fa-lime',
+            'fa-solid fa-macaron',
+            'fa-solid fa-mango',
+            'fa-solid fa-marshmallow',
+            'fa-solid fa-matcha',
+            'fa-solid fa-mayo',
+            'fa-solid fa-milk',
+            'fa-solid fa-milkshake',
+            'fa-solid fa-mint',
+            'fa-solid fa-mochi',
+            'fa-solid fa-muffin',
+            'fa-solid fa-mushroom',
+            'fa-solid fa-nacho',
+            'fa-solid fa-noodles',
+            'fa-solid fa-oil',
+            'fa-solid fa-olive',
+            'fa-solid fa-onigiri',
+            'fa-solid fa-onion',
+            'fa-solid fa-orange-slice',
+            'fa-solid fa-pancake',
+            'fa-solid fa-papaya',
+            'fa-solid fa-parfait',
+            'fa-solid fa-passionfruit',
+            'fa-solid fa-pavlova',
+            'fa-solid fa-peach',
+            'fa-solid fa-peanut',
+            'fa-solid fa-pear',
+            'fa-solid fa-pepperoni',
+            'fa-solid fa-pickle',
+            'fa-solid fa-pie',
+            'fa-solid fa-pineapple',
+            'fa-solid fa-pita',
+            'fa-solid fa-plum',
+            'fa-solid fa-pomegranate',
+            'fa-solid fa-popsicle',
+            'fa-solid fa-potato',
+            'fa-solid fa-pretzel',
+            'fa-solid fa-pudding',
+            'fa-solid fa-pumpkin',
+            'fa-solid fa-quinoa',
+            'fa-solid fa-ramen',
+            'fa-solid fa-raspberry',
+            'fa-solid fa-rice',
+            'fa-solid fa-sandwich',
+            'fa-solid fa-sashimi',
+            'fa-solid fa-sauce',
+            'fa-solid fa-sausage',
+            'fa-solid fa-shawarma',
+            'fa-solid fa-smoothie',
+            'fa-solid fa-snowcone',
+            'fa-solid fa-soy',
+            'fa-solid fa-spice',
+            'fa-solid fa-spinach',
+            'fa-solid fa-squid',
+            'fa-solid fa-steak',
+            'fa-solid fa-strawberry',
+            'fa-solid fa-sunflower',
+            'fa-solid fa-sushi-roll',
+            'fa-solid fa-syrup',
+            'fa-solid fa-taco',
+            'fa-solid fa-tahini',
+            'fa-solid fa-tapioca',
+            'fa-solid fa-tart',
+            'fa-solid fa-tea',
+            'fa-solid fa-toast',
+            'fa-solid fa-toffee',
+            'fa-solid fa-tomato',
+            'fa-solid fa-tortilla',
+            'fa-solid fa-turkey',
+            'fa-solid fa-udon',
+            'fa-solid fa-vanilla',
+            'fa-solid fa-vegan',
+            'fa-solid fa-waffle',
+            'fa-solid fa-wasabi',
+            'fa-solid fa-watermelon',
+            'fa-solid fa-wine',
+            'fa-solid fa-yogurt'
+        ];
+
+        // Combine all unique icons
+        const ALL_UNIQUE_ICONS = [...UNIQUE_ICON_CLASSES, ...ADDITIONAL_ICONS];
+        
+        // Remove any duplicates from the list
+        const uniqueIconSet = new Set(ALL_UNIQUE_ICONS);
+        const UNIQUE_ICON_LIST = Array.from(uniqueIconSet);
+        
+        console.log(`✅ Total unique Font Awesome icons available: ${UNIQUE_ICON_LIST.length}`);
+
+        // ================================================================
+        //  FOOD CATEGORIES
+        // ================================================================
+
+        const CATEGORIES = [
+            'Appetizers', 'Bakery', 'Barbecue', 'Beverages', 'Breads',
+            'Breakfast', 'Cakes', 'Candy', 'Casseroles', 'Cheese',
+            'Chocolate', 'Cocktails', 'Coffee', 'Condiments', 'Confectionery',
+            'Cookies', 'Dairy', 'Desserts', 'Fast Food', 'Fish',
+            'Fruits', 'Grains', 'Grilled Foods', 'Ice Cream', 'Italian Food',
+            'Jams', 'Juices', 'Meat', 'Mexican Food', 'Noodles',
+            'Nuts', 'Pasta', 'Pastries', 'Pies', 'Pizza',
+            'Poultry', 'Puddings', 'Rice', 'Salads', 'Sandwiches',
+            'Sauces', 'Seafood', 'Snacks', 'Soups', 'Spices',
+            'Sushi', 'Sweets', 'Tea', 'Vegetables', 'Yogurt'
+        ];
+
+        // ================================================================
+        //  GENERATE UNIQUE FOOD NAMES
+        // ================================================================
+
+        const FOOD_WORDS = [
+            'pizza', 'burger', 'sandwich', 'taco', 'burrito', 'sushi', 'ramen', 'pasta', 'noodle', 'rice',
+            'bread', 'cake', 'pie', 'pastry', 'brownie', 'cookie', 'donut', 'muffin', 'croissant', 'bagel',
+            'fries', 'chips', 'nachos', 'popcorn', 'pretzel', 'nuts', 'cheese', 'butter', 'yogurt', 'milk',
+            'chicken', 'beef', 'pork', 'fish', 'shrimp', 'lobster', 'crab', 'squid', 'mussel', 'clam',
+            'apple', 'banana', 'orange', 'strawberry', 'grape', 'mango', 'pineapple', 'watermelon', 'peach', 'plum',
+            'carrot', 'broccoli', 'spinach', 'lettuce', 'tomato', 'onion', 'garlic', 'pepper', 'mushroom', 'corn',
+            'rice', 'quinoa', 'oat', 'barley', 'wheat', 'flour', 'sugar', 'salt', 'spice', 'herb',
+            'sauce', 'ketchup', 'mustard', 'mayo', 'vinegar', 'oil', 'butter', 'cream', 'custard', 'pudding',
+            'soup', 'stew', 'chili', 'curry', 'kebab', 'falafel', 'hummus', 'tabbouleh', 'coffee', 'tea',
+            'espresso', 'latte', 'cappuccino', 'mocha', 'matcha', 'chai', 'smoothie', 'shake', 'lemonade', 'cider'
+        ];
+
+        const PREFIXES = ['delicious', 'tasty', 'yummy', 'fresh', 'crispy', 'juicy', 'spicy', 'sweet', 'savory', 'creamy', 'cheesy', 'crunchy'];
+        const SUFFIXES = ['deluxe', 'supreme', 'gourmet', 'special', 'classic', 'fresh', 'tasty', 'crispy', 'juicy', 'spicy', 'sweet', 'savory', 'creamy', 'cheesy', 'crunchy'];
+
+        function generateUniqueFoodNames(count) {
+            const names = new Set();
+            
+            // First, add base food words
+            for (let word of FOOD_WORDS) {
+                if (names.size < count) {
+                    names.add(word);
+                }
+            }
+
+            // Then generate more names with prefixes and suffixes
+            let attempts = 0;
+            while (names.size < count && attempts < 100000) {
+                attempts++;
+                let name = '';
+                
+                if (Math.random() < 0.3) {
+                    name += PREFIXES[Math.floor(Math.random() * PREFIXES.length)] + '-';
+                }
+                
+                let base = FOOD_WORDS[Math.floor(Math.random() * FOOD_WORDS.length)];
+                
+                if (Math.random() < 0.2) {
+                    base += Math.floor(Math.random() * 100);
+                }
+                
+                name += base;
+                
+                if (Math.random() < 0.3) {
+                    name += '-' + SUFFIXES[Math.floor(Math.random() * SUFFIXES.length)];
+                }
+                
+                name = name.replace(/[^a-zA-Z0-9\-]/g, '').replace(/\-+/g, '-').replace(/^\-|\-$/g, '');
+                if (name.length > 1 && !names.has(name)) {
+                    names.add(name);
+                }
+            }
+
+            return Array.from(names);
+        }
+
+        // ================================================================
+        //  CREATE ICON DATA (EACH ICON USED ONLY ONCE)
+        // ================================================================
+
+        const TOTAL_ICONS = Math.min(UNIQUE_ICON_LIST.length, 5100);
+        console.log(`📊 Creating ${TOTAL_ICONS} unique icons (using each icon only once)`);
+
+        // Generate unique names
+        const uniqueNames = generateUniqueFoodNames(TOTAL_ICONS);
+        console.log(`📝 Generated ${uniqueNames.length} unique food names`);
+
+        // Create icon data - each icon class used only once
+        const allIcons = [];
+        const usedIconClasses = new Set();
+        const usedNames = new Set();
+
+        // Shuffle the icon list to randomize
+        const shuffledIcons = [...UNIQUE_ICON_LIST].sort(() => Math.random() - 0.5);
+        
+        // For each unique name, assign a unique icon
+        for (let i = 0; i < Math.min(uniqueNames.length, shuffledIcons.length); i++) {
+            const iconClass = shuffledIcons[i];
+            const name = uniqueNames[i];
+            const category = CATEGORIES[Math.floor(Math.random() * CATEGORIES.length)];
+            
+            if (!usedIconClasses.has(iconClass) && !usedNames.has(name)) {
+                usedIconClasses.add(iconClass);
+                usedNames.add(name);
+                allIcons.push({
+                    name: name,
+                    category: category,
+                    iconClass: iconClass
+                });
+            }
+        }
+
+        console.log(`✅ Created ${allIcons.length} unique icons (no duplicates)`);
+        console.log(`📊 Used ${usedIconClasses.size} unique icon classes`);
+
+        // ================================================================
+        //  DOWNLOAD HELPER (2410px PNG using html2canvas)
+        // ================================================================
+        function downloadIconAsPng(iconElement, fileName) {
+            // Get the icon class from the element
+            const iconClass = iconElement.className;
+
+            // Create a temporary container in the export div
+            const exportContainer = document.getElementById('exportContainer');
+            exportContainer.innerHTML = '';
+            const wrapper = document.createElement('div');
+            wrapper.style.cssText = `
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 2410px;
+                        height: 2410px;
+                        background: transparent;
+                    `;
+            const iconWrap = document.createElement('div');
+            iconWrap.className = 'icon-wrap';
+            iconWrap.style.cssText = `
+                        font-size: 1200px !important;
+                        color: #0a1929;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
+                    `;
+            const i = document.createElement('i');
+            i.className = iconClass;
+            i.style.cssText = 'font-size: 1200px !important;';
+            iconWrap.appendChild(i);
+            wrapper.appendChild(iconWrap);
+            exportContainer.appendChild(wrapper);
+
+            // Use html2canvas to capture
+            html2canvas(wrapper, {
+                width: 2410,
+                height: 2410,
+                backgroundColor: null,
+                scale: 1,
+                useCORS: true,
+                allowTaint: false,
+                logging: false,
+                onclone: function(doc) {
+                    // Ensure fonts are loaded
+                }
+            }).then(canvas => {
+                // Create download link
+                const link = document.createElement('a');
+                link.download = `${fileName || 'icon'}_2410px.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                // Clean up
+                exportContainer.innerHTML = '';
+            }).catch(err => {
+                console.error('Download failed:', err);
+                exportContainer.innerHTML = '';
+                alert('Download failed. Please try again.');
+            });
+        }
+
+        // ================================================================
+        //  STATE
+        // ================================================================
+
+        const ICONS_PER_PAGE = 60;
+        let currentCategory = 'all';
+        let searchTerm = '';
+        let visibleCount = 0;
+
+        const grid = document.getElementById('iconGrid');
+        const searchInput = document.getElementById('searchInput');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const totalSpan = document.getElementById('totalCount');
+        const visibleSpan = document.getElementById('visibleCount');
+        const categorySpan = document.getElementById('categoryCount');
+        const allCountSpan = document.getElementById('allCount');
+        const footerYear = document.getElementById('footerYear');
+
+        footerYear.textContent = new Date().getFullYear();
+
+        // ================================================================
+        //  CATEGORY BUTTONS
+        // ================================================================
+
+        const catFilter = document.getElementById('categoryFilter');
+        const uniqueCats = [...new Set(allIcons.map(item => item.category))].sort();
+
+        categorySpan.textContent = uniqueCats.length;
+
+        uniqueCats.forEach(cat => {
+            const btn = document.createElement('button');
+            btn.dataset.cat = cat;
+            const count = allIcons.filter(i => i.category === cat).length;
+            btn.innerHTML = `${cat} <span class="count">${count}</span>`;
+            catFilter.appendChild(btn);
+        });
+
+        allCountSpan.textContent = allIcons.length;
+        totalSpan.textContent = allIcons.length;
+
+        // ================================================================
+        //  FILTER + RENDER (with download button)
+        // ================================================================
+
+        function getFilteredIcons() {
+            let filtered = allIcons;
+
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(item => item.category === currentCategory);
+            }
+
+            if (searchTerm.trim() !== '') {
+                const term = searchTerm.trim().toLowerCase();
+                filtered = filtered.filter(item => item.name.toLowerCase().includes(term));
+            }
+
+            return filtered;
+        }
+
+        function renderIcons(limit = ICONS_PER_PAGE) {
+            const filtered = getFilteredIcons();
+            const totalFiltered = filtered.length;
+
+            const showCount = Math.min(visibleCount + limit, totalFiltered);
+            const slice = filtered.slice(0, showCount);
+
+            grid.innerHTML = '';
+
+            if (slice.length === 0) {
+                grid.innerHTML = `
+                            <div class="empty-state">
+                                <i class="fas fa-search"></i>
+                                <h3>No food icons found</h3>
+                                <p>Try searching with different keywords</p>
+                            </div>
+                        `;
+                visibleCount = 0;
+                visibleSpan.textContent = '0';
+                loadMoreBtn.style.display = 'none';
+                return;
+            }
+
+            slice.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'icon-card';
+
+                const iconWrap = document.createElement('div');
+                iconWrap.className = 'icon-wrap';
+                iconWrap.innerHTML = `<i class="${item.iconClass}"></i>`;
+                card.appendChild(iconWrap);
+
+                const nameSpan = document.createElement('div');
+                nameSpan.className = 'icon-name';
+                nameSpan.textContent = item.name;
+                card.appendChild(nameSpan);
+
+                const catSpan = document.createElement('div');
+                catSpan.className = 'icon-category';
+                catSpan.textContent = item.category;
+                card.appendChild(catSpan);
+
+                // Download button
+                const downloadBtn = document.createElement('button');
+                downloadBtn.className = 'download-btn';
+                downloadBtn.innerHTML = '<i class="fas fa-download"></i>';
+                downloadBtn.setAttribute('aria-label', 'Download icon as PNG');
+                downloadBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // find the icon element inside this card
+                    const iconEl = this.closest('.icon-card').querySelector('.icon-wrap i');
+                    if (iconEl) {
+                        downloadIconAsPng(iconEl, item.name);
+                    }
+                });
+                card.appendChild(downloadBtn);
+
+                grid.appendChild(card);
+            });
+
+            visibleCount = showCount;
+            visibleSpan.textContent = showCount;
+            totalSpan.textContent = allIcons.length;
+
+            if (showCount < totalFiltered) {
+                loadMoreBtn.style.display = 'inline-flex';
+                loadMoreBtn.disabled = false;
+                const remaining = totalFiltered - showCount;
+                const nextBatch = Math.min(ICONS_PER_PAGE, remaining);
+                loadMoreBtn.innerHTML = `<i class="fas fa-plus-circle"></i> Load More (${nextBatch})`;
+            } else {
+                loadMoreBtn.style.display = 'none';
+            }
+        }
+
+        // ================================================================
+        //  EVENT LISTENERS
+        // ================================================================
+
+        document.querySelectorAll('#categoryFilter button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('#categoryFilter button').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentCategory = this.dataset.cat;
+                visibleCount = 0;
+                renderIcons(ICONS_PER_PAGE);
+            });
+        });
+
+        searchInput.addEventListener('input', function() {
+            searchTerm = this.value;
+            visibleCount = 0;
+            renderIcons(ICONS_PER_PAGE);
+        });
+
+        loadMoreBtn.addEventListener('click', function() {
+            renderIcons(ICONS_PER_PAGE);
+        });
+
+        // ================================================================
+        //  INITIAL RENDER
+        // ================================================================
+
+        renderIcons(ICONS_PER_PAGE);
+
+        // Show duplicate check in console
+        const allIconClasses = allIcons.map(i => i.iconClass);
+        const duplicateCheck = new Set(allIconClasses);
+        console.log(`🔍 Duplicate check: ${allIconClasses.length} icons, ${duplicateCheck.size} unique`);
+        console.log(`✅ No duplicates! ${allIconClasses.length === duplicateCheck.size ? '✓' : '✗'}`);
+        
+        const allNames = allIcons.map(i => i.name);
+        const nameCheck = new Set(allNames);
+        console.log(`🔍 Name check: ${allNames.length} names, ${nameCheck.size} unique`);
+        console.log(`✅ No duplicate names! ${allNames.length === nameCheck.size ? '✓' : '✗'}`);
+    })();
+</script>
+
+</body>
+</html>

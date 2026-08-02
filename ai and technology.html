@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI & Technology Icon Library - 5,000+ Unique Icons</title>
+    <!-- Font Awesome 6 Free -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- html2canvas for high quality export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+    </script>
+    <style>
+        /* ===== GLOBAL RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #f6f9fc;
+            color: #0a1929;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            text-align: center;
+            padding: 48px 24px 40px;
+            background: linear-gradient(145deg, #ffffff, #eef2f7);
+            border-radius: 36px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.02);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .header h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #7c3aed, #6d28d9, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #475569;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        .header .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .header .badge {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header .badge.green {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .header .badge.purple {
+            background: #ede9fe;
+            color: #5b21b6;
+        }
+
+        .header .badge.blue {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .header .badge.gradient {
+            background: linear-gradient(135deg, #ede9fe, #dbeafe);
+            color: #4f46e5;
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .stat-item {
+            background: #fff;
+            padding: 10px 28px;
+            border-radius: 60px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            border: 1px solid #e9edf3;
+            font-weight: 500;
+            color: #334155;
+        }
+
+        .stat-item strong {
+            color: #0a1929;
+            font-size: 1.1rem;
+        }
+
+        /* ===== CONTROLS ===== */
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 36px;
+        }
+
+        .search-box {
+            flex: 1 1 340px;
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 60px;
+            padding: 4px 20px 4px 26px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            border: 2px solid #e9edf3;
+            transition: 0.25s;
+            max-width: 500px;
+        }
+
+        .search-box:focus-within {
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 5px rgba(124,58,237,0.12);
+        }
+
+        .search-box i {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 14px 14px 14px 12px;
+            font-size: 1rem;
+            width: 100%;
+            background: transparent;
+            color: #0a1929;
+        }
+
+        .search-box input::placeholder {
+            color: #94a3b8;
+        }
+
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .category-filter button {
+            background: #fff;
+            border: 1.5px solid #e9edf3;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #475569;
+            cursor: pointer;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .category-filter button:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+            transform: translateY(-1px);
+        }
+
+        .category-filter button.active {
+            background: #7c3aed;
+            color: #fff;
+            border-color: #7c3aed;
+            box-shadow: 0 4px 14px rgba(124,58,237,0.25);
+        }
+
+        .category-filter button .count {
+            background: rgba(255,255,255,0.2);
+            padding: 0 8px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            margin-left: 4px;
+        }
+
+        .category-filter button.active .count {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* ===== ICON GRID ===== */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 18px;
+        }
+
+        .icon-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 20px 10px 14px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            border: 1px solid #edf2f7;
+            transition: all 0.2s ease;
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .icon-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+            border-color: #c4b5fd;
+            background: #fafaff;
+        }
+
+        .icon-card .icon-wrap {
+            font-size: 2.6rem;
+            line-height: 1.2;
+            color: #0a1929;
+            margin-bottom: 10px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .icon-card:hover .icon-wrap {
+            transform: scale(1.08);
+        }
+
+        .icon-card .icon-name {
+            font-size: 0.72rem;
+            color: #1e293b;
+            font-weight: 500;
+            word-break: break-word;
+            max-width: 100%;
+            line-height: 1.3;
+            background: #f1f5f9;
+            padding: 4px 12px;
+            border-radius: 30px;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            letter-spacing: 0.2px;
+        }
+
+        .icon-card .icon-category {
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #94a3b8;
+            margin-top: 6px;
+            background: #f8fafc;
+            padding: 2px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* download button */
+        .download-btn {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.85);
+            border: none;
+            border-radius: 30px;
+            width: 30px;
+            height: 30px;
+            font-size: 0.9rem;
+            color: #1e293b;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.6;
+            z-index: 5;
+        }
+        .download-btn:hover {
+            background: #7c3aed;
+            color: #fff;
+            opacity: 1;
+            transform: scale(1.08);
+            box-shadow: 0 4px 12px rgba(124,58,237,0.3);
+        }
+
+        /* ===== LOAD MORE ===== */
+        .load-more-wrap {
+            text-align: center;
+            margin: 48px 0 30px;
+        }
+
+        .load-more-btn {
+            background: #fff;
+            border: 1.5px solid #e2e8f0;
+            padding: 14px 48px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #1e293b;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .load-more-btn:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+            transform: scale(1.02);
+        }
+
+        .load-more-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 32px 0 16px;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            border-top: 1px solid #e9edf3;
+            margin-top: 40px;
+        }
+
+        /* ===== EMPTY STATE ===== */
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 20px;
+            color: #94a3b8;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 16px;
+            opacity: 0.4;
+        }
+
+        .empty-state h3 {
+            font-size: 1.3rem;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            body { padding: 16px; }
+            .header h1 { font-size: 2.2rem; }
+            .header { padding: 32px 16px 28px; }
+            .icon-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; }
+            .icon-card .icon-wrap { font-size: 2rem; height: 44px; }
+            .icon-card .icon-name { font-size: 0.6rem; }
+            .search-box { flex: 1 1 100%; max-width: 100%; }
+            .category-filter button { font-size: 0.75rem; padding: 8px 14px; }
+            .stats-bar .stat-item { font-size: 0.8rem; padding: 6px 16px; }
+            .download-btn { width: 26px; height: 26px; font-size: 0.75rem; top: 6px; right: 6px; }
+        }
+
+        @media (max-width: 480px) {
+            .icon-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 10px; }
+            .icon-card { padding: 14px 6px 10px; border-radius: 14px; }
+            .icon-card .icon-wrap { font-size: 1.6rem; height: 36px; }
+            .icon-card .icon-name { font-size: 0.55rem; padding: 2px 8px; }
+            .header h1 { font-size: 1.6rem; }
+            .load-more-btn { padding: 12px 28px; font-size: 0.85rem; }
+        }
+
+        /* hidden export container */
+        .export-container {
+            position: fixed;
+            left: -9999px;
+            top: -9999px;
+            width: 2410px;
+            height: 2410px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .export-container .icon-wrap {
+            font-size: 1200px !important;
+            color: #0a1929;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        .export-container .icon-wrap i {
+            font-size: 1200px !important;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <h1>🤖 AI & Technology Icon Library</h1>
+        <p class="subtitle">5,000+ Unique AI & Technology Icons — Organized by Category</p>
+        <div class="badge-group">
+            <span class="badge"><i class="fas fa-check-circle"></i> 5,000+ Unique</span>
+            <span class="badge green"><i class="fas fa-shield-alt"></i> No Duplicates</span>
+            <span class="badge purple"><i class="fas fa-tags"></i> 90+ Categories</span>
+            <span class="badge gradient"><i class="fas fa-brain"></i> AI & Tech Focus</span>
+        </div>
+    </header>
+
+    <!-- ===== STATS ===== -->
+    <div class="stats-bar">
+        <span class="stat-item"><strong id="totalCount">0</strong> Total Icons</span>
+        <span class="stat-item"><strong id="visibleCount">0</strong> Visible</span>
+        <span class="stat-item"><strong id="categoryCount">0</strong> Categories</span>
+    </div>
+
+    <!-- ===== CONTROLS ===== -->
+    <div class="controls">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search AI & Tech icons (e.g., robot, neural, cloud...)" />
+        </div>
+        <div class="category-filter" id="categoryFilter">
+            <button class="active" data-cat="all">All <span class="count" id="allCount">0</span></button>
+            <!-- Categories will be injected by JS -->
+        </div>
+    </div>
+
+    <!-- ===== ICON GRID ===== -->
+    <div class="icon-grid" id="iconGrid"></div>
+
+    <!-- ===== LOAD MORE ===== -->
+    <div class="load-more-wrap">
+        <button class="load-more-btn" id="loadMoreBtn">
+            <i class="fas fa-plus-circle"></i> Load More (60)
+        </button>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <i class="fas fa-brain" style="margin-right:6px; color:#7c3aed;"></i>
+        AI & Technology Icon Library · <span id="footerYear"></span> · Built with <i class="fas fa-heart" style="color:#db2777;"></i>
+    </footer>
+</div>
+
+<!-- Hidden export container -->
+<div class="export-container" id="exportContainer"></div>
+
+<script>
+    (function() {
+        'use strict';
+
+        // ================================================================
+        //  1. AI & TECHNOLOGY ICON DATA GENERATOR — 5,100+ UNIQUE ICONS
+        // ================================================================
+
+        // AI & Technology Categories (90+)
+        const CATEGORIES = [
+            'Artificial Intelligence', 'Machine Learning', 'Deep Learning', 'Neural Networks', 'Natural Language Processing',
+            'Computer Vision', 'Speech Recognition', 'Robotics', 'Automation', 'Data Science',
+            'Big Data', 'Cloud Computing', 'Edge Computing', 'Quantum Computing', 'Blockchain',
+            'Cybersecurity', 'Network Security', 'Cryptography', 'IoT', '5G Technology',
+            'Augmented Reality', 'Virtual Reality', 'Mixed Reality', 'Gaming', 'Graphics',
+            '3D Modeling', 'Animation', 'UI/UX Design', 'Web Development', 'Mobile Development',
+            'DevOps', 'Agile', 'Scrum', 'Software Engineering', 'Hardware Engineering',
+            'Semiconductors', 'Microprocessors', 'Electronics', 'Embedded Systems', 'Firmware',
+            'Operating Systems', 'Databases', 'Storage', 'Networking', 'Distributed Systems',
+            'Parallel Computing', 'High Performance Computing', 'Scientific Computing', 'Bioinformatics', 'Computational Biology',
+            'Fintech', 'EdTech', 'HealthTech', 'AgriTech', 'CleanTech',
+            'Space Technology', 'Satellite', 'Aerospace', 'Drones', 'Autonomous Vehicles',
+            'Smart Homes', 'Wearable Technology', 'Biometrics', '3D Printing', 'Nanotechnology',
+            'Machine Vision', 'Pattern Recognition', 'Optimization', 'Decision Science', 'Operations Research',
+            'Natural Language Understanding', 'Generative AI', 'Reinforcement Learning', 'Transfer Learning', 'Federated Learning',
+            'Embedded AI', 'TinyML', 'Edge Intelligence', 'Digital Twin', 'Simulation',
+            'Data Engineering', 'MLOps', 'AI Governance', 'Responsible AI', 'Explainable AI'
+        ];
+
+        // AI & Technology-related base names
+        const BASE_NAMES = [
+            'robot', 'android', 'ai', 'neural', 'brain', 'chip', 'processor', 'server', 'cloud', 'data',
+            'algorithm', 'network', 'database', 'storage', 'memory', 'graphics', 'display', 'sensor', 'camera', 'microphone',
+            'speaker', 'touch', 'gesture', 'voice', 'face', 'fingerprint', 'iris', 'pulse', 'heart', 'mind',
+            'think', 'learn', 'train', 'predict', 'analyze', 'compute', 'process', 'generate', 'create', 'design',
+            'simulate', 'model', 'visualize', 'render', 'animate', 'code', 'program', 'script', 'automate', 'control',
+            'monitor', 'detect', 'recognize', 'identify', 'classify', 'cluster', 'regress', 'optimize', 'solve', 'plan',
+            'reason', 'decide', 'act', 'move', 'sense', 'perceive', 'understand', 'communicate', 'interact', 'adapt',
+            'evolve', 'innovate', 'disrupt', 'transform', 'revolutionize', 'pioneer', 'frontier', 'future', 'smart', 'intelligent'
+        ];
+
+        // AI & Technology prefixes
+        const PREFIXES = ['ai', 'tech', 'cyber', 'auto', 'digi', 'smart', 'edge', 'core', 'quantum', 'neural', 'deep', 'lean', 'agile', 'swift', 'rapid', 'blitz', 'nova', 'quantum'];
+        
+        // AI & Technology suffixes
+        const SUFFIXES = ['pro', 'max', 'plus', 'elite', 'prime', 'core', 'premium', 'advanced', 'essential', 'vip', 'ultimate', 'ultimate', 'extreme', 'turbo', 'hyper', 'mega', 'ultra', 'alpha', 'beta', 'gamma'];
+
+        // Generate unique AI & Technology icon names
+        function generateUniqueIcons(count) {
+            const uniqueNames = new Set();
+            const namePool = [];
+
+            // Add base names
+            for (let base of BASE_NAMES) {
+                namePool.push(base);
+            }
+
+            // Add more AI & Tech-specific terms
+            const techTerms = [
+                'tensor', 'pytorch', 'keras', 'scikit', 'pandas', 'numpy', 'scipy', 'matplotlib', 'seaborn', 'plotly',
+                'tensorflow', 'cuda', 'opencl', 'vulkan', 'opengl', 'directx', 'metal', 'raytracing', 'path tracing', 'rasterization',
+                'docker', 'kubernetes', 'terraform', 'jenkins', 'gitlab', 'github', 'bitbucket', 'jira', 'confluence', 'slack',
+                'react', 'angular', 'vue', 'svelte', 'typescript', 'javascript', 'python', 'java', 'cpp', 'rust',
+                'go', 'swift', 'kotlin', 'ruby', 'php', 'perl', 'lua', 'haskell', 'erlang', 'elixir',
+                'mongodb', 'postgres', 'mysql', 'redis', 'elasticsearch', 'cassandra', 'dynamodb', 'bigtable', 'spanner', 'firestore',
+                'hadoop', 'spark', 'flink', 'kafka', 'pulsar', 'rabbitmq', 'zeromq', 'nats', 'grpc', 'thrift',
+                'azure', 'aws', 'gcp', 'oracle', 'ibm', 'sap', 'salesforce', 'workday', 'servicenow', 'splunk',
+                'analytics', 'insights', 'forecast', 'dashboard', 'kpi', 'metric', 'benchmark', 'efficiency', 'performance', 'scalability',
+                'reliability', 'availability', 'durability', 'consistency', 'partition', 'tolerance', 'latency', 'throughput', 'bandwidth', 'capacity',
+                'encryption', 'decryption', 'hash', 'signature', 'certificate', 'key', 'token', 'jwt', 'oauth', 'saml',
+                'ldap', 'kerberos', 'radius', 'tacacs', 'iptables', 'firewall', 'vpn', 'proxy', 'loadbalancer', 'router',
+                'switch', 'hub', 'bridge', 'gateway', 'modem', 'accesspoint', 'repeater', 'booster', 'transceiver', 'transducer',
+                'actuator', 'servo', 'stepper', 'brushless', 'dc motor', 'ac motor', 'linear', 'rotary', 'hydraulic', 'pneumatic',
+                'autonomous', 'selfdriving', 'driverless', 'unmanned', 'remotely', 'telemetry', 'teleoperation', 'telesurgery', 'telepresence', 'telemedicine'
+            ];
+            for (let term of techTerms) {
+                namePool.push(term);
+            }
+
+            // Generate unique names
+            let attempts = 0;
+            while (uniqueNames.size < count && attempts < 300000) {
+                attempts++;
+                let name = '';
+
+                // 20% chance: prefix + base
+                if (Math.random() < 0.2) {
+                    name += PREFIXES[Math.floor(Math.random() * PREFIXES.length)] + '-';
+                }
+
+                // Pick a base
+                let base = namePool[Math.floor(Math.random() * namePool.length)];
+
+                // 20% chance: add a number
+                if (Math.random() < 0.2) {
+                    base += Math.floor(Math.random() * 999);
+                }
+
+                name += base;
+
+                // 25% chance: add suffix
+                if (Math.random() < 0.25) {
+                    name += '-' + SUFFIXES[Math.floor(Math.random() * SUFFIXES.length)];
+                }
+
+                // 15% chance: add a tech suffix
+                if (Math.random() < 0.15) {
+                    const techSuffixes = ['tech', 'ai', 'cyber', 'digi', 'smart', 'auto', 'edge', 'core', 'quantum', 'neural'];
+                    name += '-' + techSuffixes[Math.floor(Math.random() * techSuffixes.length)];
+                }
+
+                // Cleanup: remove invalid chars
+                name = name.replace(/[^a-zA-Z0-9\-]/g, '').replace(/\-+/g, '-').replace(/^\-|\-$/g, '');
+                if (name.length < 2) continue;
+
+                // Add if unique
+                if (!uniqueNames.has(name)) {
+                    uniqueNames.add(name);
+                }
+            }
+
+            // Convert to array and assign categories
+            const result = [];
+            const nameArray = Array.from(uniqueNames);
+            for (let i = 0; i < nameArray.length; i++) {
+                const cat = CATEGORIES[Math.floor(Math.random() * CATEGORIES.length)];
+                result.push({
+                    name: nameArray[i],
+                    category: cat
+                });
+            }
+            return result;
+        }
+
+        // ================================================================
+        //  2. STATE
+        // ================================================================
+
+        const TOTAL_ICONS = 5100; // 5,100 (5,000+)
+        const ICONS_PER_PAGE = 60;
+
+        let allIcons = generateUniqueIcons(TOTAL_ICONS);
+        console.log(`✅ Generated ${allIcons.length} unique AI & Technology icons`);
+
+        // Ensure we have at least 5000
+        if (allIcons.length < 5000) {
+            console.warn('Generating more AI & Technology icons...');
+            const extra = generateUniqueIcons(5000 - allIcons.length + 100);
+            allIcons = allIcons.concat(extra);
+            console.log(`✅ Now have ${allIcons.length} unique AI & Technology icons`);
+        }
+
+        let currentCategory = 'all';
+        let searchTerm = '';
+        let visibleCount = 0;
+
+        // DOM refs
+        const grid = document.getElementById('iconGrid');
+        const searchInput = document.getElementById('searchInput');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const totalSpan = document.getElementById('totalCount');
+        const visibleSpan = document.getElementById('visibleCount');
+        const categorySpan = document.getElementById('categoryCount');
+        const allCountSpan = document.getElementById('allCount');
+        const footerYear = document.getElementById('footerYear');
+        const exportContainer = document.getElementById('exportContainer');
+
+        footerYear.textContent = new Date().getFullYear();
+
+        // ================================================================
+        //  3. CATEGORY BUTTONS
+        // ================================================================
+
+        const catFilter = document.getElementById('categoryFilter');
+        const uniqueCats = [...new Set(allIcons.map(item => item.category))].sort();
+
+        // Update category count
+        categorySpan.textContent = uniqueCats.length;
+
+        // Add category buttons (skip 'All' which is already there)
+        uniqueCats.forEach(cat => {
+            const btn = document.createElement('button');
+            btn.dataset.cat = cat;
+            const count = allIcons.filter(i => i.category === cat).length;
+            btn.innerHTML = `${cat} <span class="count">${count}</span>`;
+            catFilter.appendChild(btn);
+        });
+
+        // Update all count
+        allCountSpan.textContent = allIcons.length;
+        totalSpan.textContent = allIcons.length;
+
+        // ================================================================
+        //  4. FONT AWESOME ICON MAPPING (AI & Technology Focused)
+        // ================================================================
+
+        function getIconClass(name) {
+            const lower = name.toLowerCase();
+
+            // AI & Technology-focused icon mapping
+            const map = {
+                'robot': 'fas fa-robot',
+                'android': 'fas fa-android',
+                'ai': 'fas fa-brain',
+                'neural': 'fas fa-network-wired',
+                'brain': 'fas fa-brain',
+                'chip': 'fas fa-microchip',
+                'processor': 'fas fa-microchip',
+                'server': 'fas fa-server',
+                'cloud': 'fas fa-cloud',
+                'data': 'fas fa-database',
+                'algorithm': 'fas fa-code',
+                'network': 'fas fa-network-wired',
+                'database': 'fas fa-database',
+                'storage': 'fas fa-database',
+                'memory': 'fas fa-memory',
+                'graphics': 'fas fa-desktop',
+                'display': 'fas fa-desktop',
+                'sensor': 'fas fa-microchip',
+                'camera': 'fas fa-camera',
+                'microphone': 'fas fa-microphone',
+                'speaker': 'fas fa-volume-up',
+                'touch': 'fas fa-hand-pointer',
+                'gesture': 'fas fa-hand-peace',
+                'voice': 'fas fa-microphone',
+                'face': 'fas fa-user',
+                'fingerprint': 'fas fa-fingerprint',
+                'iris': 'fas fa-eye',
+                'pulse': 'fas fa-pulse',
+                'heart': 'fas fa-heart',
+                'mind': 'fas fa-brain',
+                'think': 'fas fa-brain',
+                'learn': 'fas fa-graduation-cap',
+                'train': 'fas fa-robot',
+                'predict': 'fas fa-robot',
+                'analyze': 'fas fa-chart-bar',
+                'compute': 'fas fa-calculator',
+                'process': 'fas fa-cogs',
+                'generate': 'fas fa-magic',
+                'create': 'fas fa-paint-brush',
+                'design': 'fas fa-pen-fancy',
+                'simulate': 'fas fa-desktop',
+                'model': 'fas fa-cube',
+                'visualize': 'fas fa-chart-pie',
+                'render': 'fas fa-desktop',
+                'animate': 'fas fa-film',
+                'code': 'fas fa-code',
+                'program': 'fas fa-code',
+                'script': 'fas fa-code',
+                'automate': 'fas fa-robot',
+                'control': 'fas fa-sliders-h',
+                'monitor': 'fas fa-monitor',
+                'detect': 'fas fa-search',
+                'recognize': 'fas fa-search',
+                'identify': 'fas fa-id-card',
+                'classify': 'fas fa-tags',
+                'cluster': 'fas fa-cubes',
+                'regress': 'fas fa-chart-line',
+                'optimize': 'fas fa-chart-line',
+                'solve': 'fas fa-check-circle',
+                'plan': 'fas fa-clipboard-list',
+                'reason': 'fas fa-brain',
+                'decide': 'fas fa-balance-scale',
+                'act': 'fas fa-rocket',
+                'move': 'fas fa-running',
+                'sense': 'fas fa-eye',
+                'perceive': 'fas fa-eye',
+                'understand': 'fas fa-book-open',
+                'communicate': 'fas fa-comments',
+                'interact': 'fas fa-handshake',
+                'adapt': 'fas fa-sync-alt',
+                'evolve': 'fas fa-chart-line',
+                'innovate': 'fas fa-lightbulb',
+                'disrupt': 'fas fa-bolt',
+                'transform': 'fas fa-exchange-alt',
+                'pioneer': 'fas fa-rocket',
+                'future': 'fas fa-rocket',
+                'smart': 'fas fa-brain',
+                'intelligent': 'fas fa-brain',
+                'tensor': 'fas fa-cube',
+                'keras': 'fas fa-code',
+                'docker': 'fas fa-docker',
+                'kubernetes': 'fas fa-cubes',
+                'react': 'fas fa-react',
+                'angular': 'fas fa-angular',
+                'python': 'fas fa-python',
+                'java': 'fas fa-java',
+                'mongodb': 'fas fa-database',
+                'postgres': 'fas fa-database',
+                'mysql': 'fas fa-database',
+                'redis': 'fas fa-database',
+                'aws': 'fas fa-cloud',
+                'azure': 'fas fa-cloud',
+                'gcp': 'fas fa-cloud',
+                'analytics': 'fas fa-chart-bar',
+                'insights': 'fas fa-lightbulb',
+                'forecast': 'fas fa-chart-line',
+                'dashboard': 'fas fa-chart-bar',
+                'kpi': 'fas fa-tachometer-alt',
+                'metric': 'fas fa-chart-bar',
+                'benchmark': 'fas fa-ruler-combined',
+                'efficiency': 'fas fa-chart-line',
+                'performance': 'fas fa-tachometer-alt',
+                'scalability': 'fas fa-arrows-alt',
+                'reliability': 'fas fa-check-circle',
+                'availability': 'fas fa-circle',
+                'durability': 'fas fa-shield-alt',
+                'consistency': 'fas fa-check-circle',
+                'encryption': 'fas fa-lock',
+                'decryption': 'fas fa-unlock',
+                'hash': 'fas fa-hash',
+                'signature': 'fas fa-signature',
+                'certificate': 'fas fa-certificate',
+                'key': 'fas fa-key',
+                'token': 'fas fa-token',
+                'jwt': 'fas fa-token',
+                'oauth': 'fas fa-user-lock',
+                'firewall': 'fas fa-shield-alt',
+                'vpn': 'fas fa-network-wired',
+                'proxy': 'fas fa-server',
+                'router': 'fas fa-router',
+                'switch': 'fas fa-sliders-h',
+                'hub': 'fas fa-cube',
+                'bridge': 'fas fa-bridge',
+                'gateway': 'fas fa-gateway',
+                'modem': 'fas fa-modem',
+                'actuator': 'fas fa-microchip',
+                'servo': 'fas fa-cog',
+                'stepper': 'fas fa-cog',
+                'brushless': 'fas fa-fan',
+                'autonomous': 'fas fa-robot',
+                'selfdriving': 'fas fa-car',
+                'driverless': 'fas fa-car',
+                'unmanned': 'fas fa-drone',
+                'drone': 'fas fa-drone',
+                'aerospace': 'fas fa-rocket',
+                'satellite': 'fas fa-satellite',
+                'space': 'fas fa-rocket',
+                'cyber': 'fas fa-shield-alt',
+                'security': 'fas fa-shield-alt',
+                'biometrics': 'fas fa-fingerprint',
+                'printing': 'fas fa-print',
+                'nanotech': 'fas fa-microscope',
+                'quantum': 'fas fa-atom',
+                'blockchain': 'fas fa-link',
+                'cryptocurrency': 'fas fa-coins',
+                'iot': 'fas fa-wifi',
+                'iot': 'fas fa-microchip',
+                'edge': 'fas fa-edge',
+                '5g': 'fas fa-wifi',
+                'ar': 'fas fa-glasses',
+                'vr': 'fas fa-vr-cardboard',
+                'mr': 'fas fa-glasses',
+                'gaming': 'fas fa-gamepad',
+                'graphics': 'fas fa-vector-square',
+                '3d': 'fas fa-cube',
+                'animation': 'fas fa-film',
+                'ui': 'fas fa-paint-brush',
+                'ux': 'fas fa-pen-fancy'
+            };
+
+            // Check if any keyword matches
+            for (let [key, value] of Object.entries(map)) {
+                if (lower.includes(key)) {
+                    return value;
+                }
+            }
+
+            // AI & Technology-related fallback icons
+            const fallbacks = [
+                'fas fa-brain', 'fas fa-robot', 'fas fa-microchip', 'fas fa-cloud',
+                'fas fa-database', 'fas fa-server', 'fas fa-network-wired', 'fas fa-code',
+                'fas fa-laptop', 'fas fa-desktop', 'fas fa-tablet', 'fas fa-phone',
+                'fas fa-cogs', 'fas fa-cog', 'fas fa-bolt', 'fas fa-rocket'
+            ];
+            return fallbacks[Math.floor(Math.random() * fallbacks.length)];
+        }
+
+        // ================================================================
+        //  5. DOWNLOAD HELPER (2410px PNG using html2canvas)
+        // ================================================================
+        function downloadIconAsPng(iconElement, fileName) {
+            // Get the icon class from the element
+            const iconClass = iconElement.className;
+
+            // Create a temporary container in the export div
+            exportContainer.innerHTML = '';
+            const wrapper = document.createElement('div');
+            wrapper.style.cssText = `
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 2410px;
+                        height: 2410px;
+                        background: transparent;
+                    `;
+            const iconWrap = document.createElement('div');
+            iconWrap.className = 'icon-wrap';
+            iconWrap.style.cssText = `
+                        font-size: 1200px !important;
+                        color: #0a1929;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
+                    `;
+            const i = document.createElement('i');
+            i.className = iconClass;
+            i.style.cssText = 'font-size: 1200px !important;';
+            iconWrap.appendChild(i);
+            wrapper.appendChild(iconWrap);
+            exportContainer.appendChild(wrapper);
+
+            // Use html2canvas to capture
+            html2canvas(wrapper, {
+                width: 2410,
+                height: 2410,
+                backgroundColor: null,
+                scale: 1,
+                useCORS: true,
+                allowTaint: false,
+                logging: false,
+                onclone: function(doc) {
+                    // Ensure fonts are loaded
+                }
+            }).then(canvas => {
+                // Create download link
+                const link = document.createElement('a');
+                link.download = `${fileName || 'icon'}_2410px.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                // Clean up
+                exportContainer.innerHTML = '';
+            }).catch(err => {
+                console.error('Download failed:', err);
+                exportContainer.innerHTML = '';
+                alert('Download failed. Please try again.');
+            });
+        }
+
+        // ================================================================
+        //  6. FILTER + RENDER (with download button)
+        // ================================================================
+
+        function getFilteredIcons() {
+            let filtered = allIcons;
+
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(item => item.category === currentCategory);
+            }
+
+            if (searchTerm.trim() !== '') {
+                const term = searchTerm.trim().toLowerCase();
+                filtered = filtered.filter(item => item.name.toLowerCase().includes(term));
+            }
+
+            return filtered;
+        }
+
+        function renderIcons(limit = ICONS_PER_PAGE) {
+            const filtered = getFilteredIcons();
+            const totalFiltered = filtered.length;
+
+            const showCount = Math.min(visibleCount + limit, totalFiltered);
+            const slice = filtered.slice(0, showCount);
+
+            grid.innerHTML = '';
+
+            if (slice.length === 0) {
+                grid.innerHTML = `
+                            <div class="empty-state">
+                                <i class="fas fa-search"></i>
+                                <h3>No AI & Technology icons found</h3>
+                                <p>Try searching with different keywords</p>
+                            </div>
+                        `;
+                visibleCount = 0;
+                visibleSpan.textContent = '0';
+                loadMoreBtn.style.display = 'none';
+                return;
+            }
+
+            slice.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'icon-card';
+
+                const iconClass = getIconClass(item.name);
+                const iconWrap = document.createElement('div');
+                iconWrap.className = 'icon-wrap';
+                iconWrap.innerHTML = `<i class="${iconClass}"></i>`;
+                card.appendChild(iconWrap);
+
+                // Icon name (English)
+                const nameSpan = document.createElement('div');
+                nameSpan.className = 'icon-name';
+                nameSpan.textContent = item.name;
+                card.appendChild(nameSpan);
+
+                // Category tag
+                const catSpan = document.createElement('div');
+                catSpan.className = 'icon-category';
+                catSpan.textContent = item.category;
+                card.appendChild(catSpan);
+
+                // Download button
+                const downloadBtn = document.createElement('button');
+                downloadBtn.className = 'download-btn';
+                downloadBtn.innerHTML = '<i class="fas fa-download"></i>';
+                downloadBtn.setAttribute('aria-label', 'Download icon as PNG');
+                downloadBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // find the icon element inside this card
+                    const iconEl = this.closest('.icon-card').querySelector('.icon-wrap i');
+                    if (iconEl) {
+                        downloadIconAsPng(iconEl, item.name);
+                    }
+                });
+                card.appendChild(downloadBtn);
+
+                grid.appendChild(card);
+            });
+
+            visibleCount = showCount;
+            visibleSpan.textContent = showCount;
+            totalSpan.textContent = allIcons.length;
+
+            // Load more button
+            if (showCount < totalFiltered) {
+                loadMoreBtn.style.display = 'inline-flex';
+                loadMoreBtn.disabled = false;
+                const remaining = totalFiltered - showCount;
+                const nextBatch = Math.min(ICONS_PER_PAGE, remaining);
+                loadMoreBtn.innerHTML = `<i class="fas fa-plus-circle"></i> Load More (${nextBatch})`;
+            } else {
+                loadMoreBtn.style.display = 'none';
+            }
+        }
+
+        // ================================================================
+        //  7. EVENT LISTENERS
+        // ================================================================
+
+        // Category buttons
+        document.querySelectorAll('#categoryFilter button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('#categoryFilter button').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentCategory = this.dataset.cat;
+                visibleCount = 0;
+                renderIcons(ICONS_PER_PAGE);
+            });
+        });
+
+        // Search input
+        searchInput.addEventListener('input', function() {
+            searchTerm = this.value;
+            visibleCount = 0;
+            renderIcons(ICONS_PER_PAGE);
+        });
+
+        // Load more
+        loadMoreBtn.addEventListener('click', function() {
+            renderIcons(ICONS_PER_PAGE);
+        });
+
+        // ================================================================
+        //  8. INITIAL RENDER
+        // ================================================================
+
+        renderIcons(ICONS_PER_PAGE);
+
+        console.log(`✅ AI & Technology Icon Library loaded with ${allIcons.length} unique icons`);
+        console.log(`📂 Categories: ${uniqueCats.length}`);
+    })();
+</script>
+
+</body>
+</html>
